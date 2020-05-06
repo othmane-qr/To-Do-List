@@ -61,7 +61,11 @@ const generateTemp = todo =>{
             </li>
    `;  
    list.innerHTML += html;
+   localStorage[''] = list.innerHTML
 };
+if(localStorage['']){
+   list.innerHTML = localStorage[''];
+}
 
 
 /* function pour controller l'evenement et pour ne pas etre repeté à chaque clique */
@@ -104,8 +108,8 @@ btn.addEventListener('click',e =>{
       start(number);
       popup.style.visibility = "visible";
    } else {
-       addf = generateTemp(addForm.add.value);
-      localStorage.getItem(addForm.add.value);
+        generateTemp(addForm.add.value);
+      
    }
  
   
@@ -119,7 +123,7 @@ btn.addEventListener('click',e =>{
 list.addEventListener('click',e =>{
  if(e.target.tagName === 'I'){
     e.target.parentElement.remove();
-    
+    localStorage[''] = list.innerHTML
  }
  
 });
